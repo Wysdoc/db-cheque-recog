@@ -1,0 +1,36 @@
+apiVersion: v1
+entries:
+  chequerecogapi:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2024-08-22T09:28:26.437864361Z"
+    description: A Helm chart for Kubernetes WyseyeChequeRecogApi
+    digest: 15a721c4cb67c8b27db3ff96e6a4f334b3d4880cd9242ae7809a908f6a95e468
+    name: chequerecogapi
+    type: application
+    urls:
+    - https://wysdoc.github.io/db-cheque-recog/chequerecogapi-1.0.0.tgz
+    version: 1.0.0
+  chequerecoguiapi:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2024-08-22T09:28:26.438175963Z"
+    description: A Helm chart for Kubernetes WyseyeChequeRecogUIAPI
+    digest: 6b880963b370bfc911d2b55041af2198333ffb6a98e29c384fd9aa7ecf2ce9fc
+    name: chequerecoguiapi
+    type: application
+    urls:
+    - https://wysdoc.github.io/db-cheque-recog/chequerecoguiapi-1.0.0.tgz
+    version: 1.0.0
+  chequerecoguiweb:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2024-08-22T09:28:26.43896607Z"
+    description: A Helm chart for Kubernetes WyseyeChequeRecogUIWeb
+    digest: 5453a3b1425ad551633c61146768ea0edf549a9e762bd9d89cc6b3d75fe07d8e
+    name: chequerecoguiweb
+    type: application
+    urls:
+    - https://wysdoc.github.io/db-cheque-recog/chequerecoguiweb-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-08-22T09:28:26.437466257Z"
