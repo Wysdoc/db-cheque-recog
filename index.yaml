@@ -3,18 +3,18 @@ entries:
   chequerecogapi:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2024-10-21T16:45:55.938554553Z"
+    created: "2024-10-22T10:05:23.920546554Z"
     description: A Helm chart for Kubernetes WyseyeChequeRecogApi
-    digest: 77f4c780e64c4c46f03b096ba53645b3adcd88b8bb3340c9d149ed20b5a05121
+    digest: 6f7ea3a2e11f09279948dd64d2e5950da39a8ac135e880715bba7b81f223ce87
     name: chequerecogapi
     type: application
     urls:
-    - https://wysdoc.github.io/denizbank-cheque-recog-chart/chequerecogapi-1.0.0.tgz
-    version: 1.0.0
+    - https://wysdoc.github.io/denizbank-cheque-recog-chart/chequerecogapi-1.0.1.tgz
+    version: 1.0.1
   chequerecoguiapi:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2024-10-21T16:45:55.947450852Z"
+    created: "2024-10-22T10:05:23.920995851Z"
     description: A Helm chart for Kubernetes WyseyeChequeRecogUIAPI
     digest: 6b880963b370bfc911d2b55041af2198333ffb6a98e29c384fd9aa7ecf2ce9fc
     name: chequerecoguiapi
@@ -25,7 +25,7 @@ entries:
   chequerecoguiweb:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2024-10-21T16:45:55.951258752Z"
+    created: "2024-10-22T10:05:23.921769146Z"
     description: A Helm chart for Kubernetes WyseyeChequeRecogUIWeb
     digest: 5453a3b1425ad551633c61146768ea0edf549a9e762bd9d89cc6b3d75fe07d8e
     name: chequerecoguiweb
@@ -33,4 +33,4 @@ entries:
     urls:
     - https://wysdoc.github.io/denizbank-cheque-recog-chart/chequerecoguiweb-1.0.0.tgz
     version: 1.0.0
-generated: "2024-10-21T16:45:55.922779354Z"
+generated: "2024-10-22T10:05:23.919285262Z"
