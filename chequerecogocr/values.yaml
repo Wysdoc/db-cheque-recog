@@ -1,0 +1,68 @@
+# Azure AI Vision Read (OCR) container
+# Equivalent docker command:
+#   docker run --rm -it -p 5000:5000 mcr.microsoft.com/azure-cognitive-services/vision/read \
+#     eula=accept ApiKey=<APIKEY> Billing=https://wyseye-ocr.cognitiveservices.azure.com
+#
+# NOTE: The container must be able to reach the Billing endpoint over HTTPS (443)
+# to report usage, otherwise it stops serving requests.
+
+azure:
+  eula: accept
+  billing: https://wyseye-ocr.cognitiveservices.azure.com
+  # Provide the key at install time: --set azure.apiKey=<APIKEY>
+  apiKey: ""
+  # Or use a pre-created secret (key name: apiKey). If set, apiKey above is ignored.
+  existingSecret: ""
+
+secret:
+  name: chequerecogocr-secret
+  namespace: default
+
+deployment:
+  name: chequerecogocr
+  namespace: default
+  replicas: 1
+  selector:
+    app: chequerecogocr
+  containers:
+    ocr:
+      name: chequerecogocr
+      image: mcr.microsoft.com/azure-cognitive-services/vision/read:latest
+      imagePullPolicy: IfNotPresent
+      port: 5000
+      resources:
+        requests:
+          cpu: "4"
+          memory: 8Gi
+        limits:
+          cpu: "8"
+          memory: 16Gi
+
+service:
+  name: chequerecogocr-service
+  namespace: default
+  type: ClusterIP
+  selector:
+    app: chequerecogocr
+  ports:
+    api:
+      port: 5000
+      targetPort: 5000
+
+ingress:
+  enabled: false
+  name: chequerecogocr-ingress
+  namespace: default
+  host: chequerecogocr.local
+
+hpa:
+  enabled: false
+  name: chequerecogocr-hpa
+  namespace: default
+  minReplicas: 1
+  maxReplicas: 3
+  averageUtilization: 80
+
+serviceAccount:
+  name: chequerecogocr-sa
+  namespace: default

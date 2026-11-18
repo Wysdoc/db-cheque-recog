@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+  namespace: {{ .Values.deployment.namespace }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.selector.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.selector.app }}
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: {{ .Values.deployment.containers.ocr.name }}
+          image: {{ .Values.deployment.containers.ocr.image }}
+          imagePullPolicy: {{ .Values.deployment.containers.ocr.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.deployment.containers.ocr.port }}
+          env:
+            - name: Eula
+              value: {{ .Values.azure.eula | quote }}
+            - name: Billing
+              value: {{ .Values.azure.billing | quote }}
+            - name: ApiKey
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.azure.existingSecret | default .Values.secret.name }}
+                  key: apiKey
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: {{ .Values.deployment.containers.ocr.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.deployment.containers.ocr.port }}
+            initialDelaySeconds: 60
+            periodSeconds: 20
+          {{- with .Values.deployment.containers.ocr.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}

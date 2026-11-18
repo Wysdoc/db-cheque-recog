@@ -11,6 +11,17 @@ entries:
     urls:
     - https://wysdoc.github.io/db-cheque-recog/chequerecogapi-1.0.2.tgz
     version: 1.0.2
+  chequerecogocr:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2026-11-18T09:29:00.000000000Z"
+    description: A Helm chart for Kubernetes WyseyeChequeRecogOCR (Azure AI Vision Read container)
+    digest: bf355368a11d4cf98b05f182ac764f68c1da6f1214ac2445ccfadf5aa0232419
+    name: chequerecogocr
+    type: application
+    urls:
+    - https://wysdoc.github.io/db-cheque-recog/chequerecogocr-1.0.0.tgz
+    version: 1.0.0
   chequerecoguiapi:
   - apiVersion: v1
     appVersion: 1.0.0
@@ -33,4 +44,4 @@ entries:
     urls:
     - https://wysdoc.github.io/db-cheque-recog/chequerecoguiweb-1.0.0.tgz
     version: 1.0.0
-generated: "2024-11-01T12:27:10.211181055Z"
+generated: "2026-11-18T09:29:00.000000000Z"
